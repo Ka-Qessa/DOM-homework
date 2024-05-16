@@ -3,9 +3,10 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
-  mode: 'production',
   target: 'web',
+  entry: './src/index.js',
   output: {
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '',
   },
@@ -32,12 +33,7 @@ module.exports = {
           MiniCssExtractPlugin.loader, 'css-loader',
         ],
       },
-
       {
-      test: /\.css$/i,
-      use: ["style-loader", "css-loader"],
-    },
-    {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource',
       },

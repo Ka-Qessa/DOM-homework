@@ -1,23 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const goblin = document.querySelector('.goblin');
-  const gameBoard = document.querySelector('.game-board');
+const randomHole = document.querySelectorAll('.hole');
+let randomPosition = Math.floor(Math.random() * randomHole.length);
+let currentHole = randomHole[randomPosition];
 
-  function getRandomPosition() {
-    const x = Math.floor(Math.random() * 4);
-    const y = Math.floor(Math.random() * 4);
-    return {
-      x,
-      y
-    };
+const character = document.querySelector('.hole_has-mole');
+  if (!currentHole.contains(character)) {
+  currentHole.appendChild(character);
+}
+
+function moveCharacter() {
+  let newRandomPosition = Math.floor(Math.random() * randomHole.length);
+  let newHole = randomHole[newRandomPosition];
+
+  if (newHole !== currentHole && !newHole.contains(character)) {
+    newHole.appendChild(character);
+    currentHole = newHole;
   }
+}
 
-  function moveGoblin() {
-    const newPosition = getRandomPosition();
-    goblin.style.gridRow = newPosition.y + 1;
-    goblin.style.gridColumn = newPosition.x + 1;
-  }
-
-  goblin.addEventListener('click', moveGoblin);
-
-  setInterval(moveGoblin, 1000);
-});
+setInterval(moveCharacter, 2000);

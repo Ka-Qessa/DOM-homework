@@ -4,11 +4,11 @@ import './js/app';
 function component() {
   const element = document.createElement('div');
 
-  element.innerHTML = _.join();
+  element.innerHTML = join();
   element.classList.add('hello');
 
   const myIcon = new Image();
-  myIcon.src = Icon;
+  //myIcon.src = Icon;
 
   element.appendChild(myIcon);
 

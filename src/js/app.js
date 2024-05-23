@@ -1,11 +1,22 @@
+const gameBoard = document.querySelector('.game-board');
+for (let i = 1; i <= 16; i++) {
+  const hole = document.createElement('div');
+  hole.classList.add('hole');
+  hole.id = `hole${i}`;
+  gameBoard.appendChild(hole);
+}
+const character = document.createElement('div');
+character.classList.add('hole_has-mole');
+gameBoard.appendChild(character);
+
 const randomHole = document.querySelectorAll('.hole');
 const randomPosition = Math.floor(Math.random() * randomHole.length);
 let currentHole = randomHole[randomPosition];
 
-const character = document.querySelector('.hole_has-mole');
+/*const character = document.querySelector('.hole_has-mole');
 if (!currentHole.contains(character)) {
   currentHole.appendChild(character);
-}
+}*/
 
 function moveCharacter() {
   const newRandomPosition = Math.floor(Math.random() * randomHole.length);

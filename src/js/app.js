@@ -1,5 +1,5 @@
 const gameBoard = document.querySelector('.game-board');
-for (let i = 1; i <= 16; i++) {
+for (let i = 1; i <= 16; i+=1) {
   const hole = document.createElement('div');
   hole.classList.add('hole');
   hole.id = `hole${i}`;
